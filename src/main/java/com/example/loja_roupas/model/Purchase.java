@@ -1,16 +1,6 @@
 package com.example.loja_roupas.model;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Column;
-import javax.persistence.ManyToOne;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.JoinTable;
 
-
-//import javax.persistence.;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -33,6 +23,11 @@ public class Purchase {
 
     @Column(nullable = false)
     private LocalDateTime purchaseDate;
+
+    // Construtor padrão
+    public Purchase() {
+        this.purchaseDate = LocalDateTime.now(); // Define a data da compra como a data atual
+    }
 
     // Getters e Setters
     public Long getId() {
@@ -65,5 +60,29 @@ public class Purchase {
 
     public void setPurchaseDate(LocalDateTime purchaseDate) {
         this.purchaseDate = purchaseDate;
+    }
+
+    // Override toString, equals e hashCode (opcional, mas recomendado)
+    @Override
+    public String toString() {
+        return "Purchase{" +
+                "id=" + id +
+                ", customer=" + customer +
+                ", products=" + products +
+                ", purchaseDate=" + purchaseDate +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Purchase)) return false;
+        Purchase purchase = (Purchase) o;
+        return id != null && id.equals(purchase.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }

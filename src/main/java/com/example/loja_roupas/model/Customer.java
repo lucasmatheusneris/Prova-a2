@@ -14,6 +14,10 @@ public class Customer {
     private String name;
     private String email;
 
+    // Construtor padrão
+    public Customer() {
+    }
+
     // Getters e Setters
     public Long getId() {
         return id;
@@ -37,5 +41,28 @@ public class Customer {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    // Override toString, equals e hashCode
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Customer)) return false;
+        Customer customer = (Customer) o;
+        return id != null && id.equals(customer.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }

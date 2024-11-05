@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Página Inicial</title>
+</head>
+<body>
+    <h1>Bem-vindo à Loja de Roupas!</h1>
+    <p>Use as rotas para gerenciar clientes e produtos.</p>
+</body>
+</html>
